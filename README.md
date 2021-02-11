@@ -51,14 +51,17 @@ a) Check your service limits:
 3. Create VCN
 4. Install your Oracle Linux VM
 5. Configure your Oracle Linux VM
+
   a) Install Git
      wget https://repo.ius.io/7/x86_64/packages/g/git222-core-2.22.4-1.el7.ius.x86_64.rpm  
-    ![image](https://user-images.githubusercontent.com/42166489/107626717-37a56080-6c84-11eb-92f2-24f5f4ab6426.png)
+     
+   ![image](https://user-images.githubusercontent.com/42166489/107626717-37a56080-6c84-11eb-92f2-24f5f4ab6426.png)
      
    b) Install Java and Maven
    
      - Please note, while executing mvn package, you may face deployment failure. This is because of permission issue.run this command :  sudo chmod –R 777 YourfolderName
-     ![image](https://user-images.githubusercontent.com/42166489/107626779-4ab83080-6c84-11eb-9a4b-9f3821bec28c.png)
+     
+  ![image](https://user-images.githubusercontent.com/42166489/107626779-4ab83080-6c84-11eb-9a4b-9f3821bec28c.png)
 
 6. Build Your Spring Boot Application
    a) Check out the Spring Boot Docker guide with Git:
