@@ -16,8 +16,9 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
 ![image](https://user-images.githubusercontent.com/42166489/107624419-d760ef80-6c80-11eb-8c00-c0de932e239b.png)
 
 
+
 1. Gather Required Information
-Prepare the information you need from the Oracle Cloud Infrastructure Console.
+  Prepare the information you need from the Oracle Cloud Infrastructure Console.
 
 a) Check your service limits:
   Regions: minimum 2
@@ -121,11 +122,29 @@ a) Check your service limits:
   
 9. Manage your Kubernetes Cluster with Cloud Shell
 
+  ![image](https://user-images.githubusercontent.com/42166489/107629176-b8b22700-6c87-11eb-819c-dba50e9c6a1a.png)
+  
+  
 10. Deploy your Docker Image to your Cluster with Cloud Shell
 
   a) Create a Secret to Securely Connect to OCIR
+  
   b) Create a Manifest file and Deploy your Image
+  
   c) Test your App
+  
   d) Clean up your App
+  
+  ![image](https://user-images.githubusercontent.com/42166489/107629219-c9fb3380-6c87-11eb-8303-446f656ed13e.png)
+  
+  ![image](https://user-images.githubusercontent.com/42166489/107629261-db444000-6c87-11eb-8f46-bc7406b01bee.png)
+  
+  
+  
+  Hence,You have successfully installed and deployed a Spring Boot app to a Kubernetes cluster on Oracle Cloud Infrastructure.
+  
+  
+  
+  
   
 
