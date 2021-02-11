@@ -13,7 +13,8 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
 
 
 
-// insert image here
+![image](https://user-images.githubusercontent.com/42166489/107624419-d760ef80-6c80-11eb-8c00-c0de932e239b.png)
+
 
 1. Gather Required Information
 Prepare the information you need from the Oracle Cloud Infrastructure Console.
