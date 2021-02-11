@@ -100,10 +100,18 @@ a) Check your service limits:
 
                
 7. Build and Push your Spring Boot Application
+
    a) Install Docker
+   
    b) Build your Docker Image
+   
    c) Push your Docker image to OCIR
+   
    d) View the OCIR Repository you Created
+   
+   ![image](https://user-images.githubusercontent.com/42166489/107628296-720ffd00-6c86-11eb-8576-3c524ed1ba06.png)
+   
+   
    
 
 
