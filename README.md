@@ -117,4 +117,15 @@ a) Check your service limits:
 
 8. Create your Kubernetes Cluster
 
+  ![image](https://user-images.githubusercontent.com/42166489/107628661-fbbfca80-6c86-11eb-9f8e-f31f4fc19fdb.png)
+  
+9. Manage your Kubernetes Cluster with Cloud Shell
+
+10. Deploy your Docker Image to your Cluster with Cloud Shell
+
+  a) Create a Secret to Securely Connect to OCIR
+  b) Create a Manifest file and Deploy your Image
+  c) Test your App
+  d) Clean up your App
+  
 
