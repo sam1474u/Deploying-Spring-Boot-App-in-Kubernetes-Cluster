@@ -112,7 +112,9 @@ a) Check your service limits:
    ![image](https://user-images.githubusercontent.com/42166489/107628296-720ffd00-6c86-11eb-8576-3c524ed1ba06.png)
    
    
-   
+   ![image](https://user-images.githubusercontent.com/42166489/107628311-79370b00-6c86-11eb-8b47-618996c9077e.png)
 
+
+8. Create your Kubernetes Cluster
 
 
