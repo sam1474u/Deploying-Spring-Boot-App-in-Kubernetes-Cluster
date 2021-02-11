@@ -46,21 +46,19 @@ a) Check your service limits:
     User OCID: <user-ocid> from your user avatar, go to User Settings and copy OCID.
     Region Key : us-ashburn-1 and iad
 
-2. Generate SSH key using Open SSH or PuttyGen. Save public and private key and keep for future use.
-// add image gor this
-
+2. Generate SSH key using Open SSH or PuttyGen. Save public and private key and keep for future use
 3. Create VCN
 4. Install your Oracle Linux VM
 5. Configure your Oracle Linux VM
   a) Install Git
      wget https://repo.ius.io/7/x86_64/packages/g/git222-core-2.22.4-1.el7.ius.x86_64.rpm  
-     
-     // add image for this
+    ![image](https://user-images.githubusercontent.com/42166489/107626717-37a56080-6c84-11eb-92f2-24f5f4ab6426.png)
      
    b) Install Java and Maven
    
      - Please note, while executing mvn package, you may face deployment failure. This is because of permission issue.run this command :  sudo chmod –R 777 YourfolderName
-     
+     ![image](https://user-images.githubusercontent.com/42166489/107626779-4ab83080-6c84-11eb-9a4b-9f3821bec28c.png)
+
 6. Build Your Spring Boot Application
    a) Check out the Spring Boot Docker guide with Git:
       git clone http://github.com/spring-guides/gs-spring-boot-docker.git
@@ -98,8 +96,9 @@ a) Check your service limits:
       From a new terminal, connect to your VM with your SSH keys and test with curl:
           curl -X GET http://localhost:8080
           
-          // add image here
-     
+          ![image](https://user-images.githubusercontent.com/42166489/107626868-6faca380-6c84-11eb-9ea1-9b755df6abfa.png)
+
+               
 7. Build and Push your Spring Boot Application
    a) Install Docker
    b) Build your Docker Image
