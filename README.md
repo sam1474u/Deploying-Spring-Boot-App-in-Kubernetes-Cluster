@@ -47,6 +47,65 @@ a) Check your service limits:
     Region Key : us-ashburn-1 and iad
 
 2. Generate SSH key using Open SSH or PuttyGen. Save public and private key and keep for future use.
+// add image gor this
+
+3. Create VCN
+4. Install your Oracle Linux VM
+5. Configure your Oracle Linux VM
+  a) Install Git
+     wget https://repo.ius.io/7/x86_64/packages/g/git222-core-2.22.4-1.el7.ius.x86_64.rpm  
+     
+     // add image for this
+     
+   b) Install Java and Maven
+   
+     - Please note, while executing mvn package, you may face deployment failure. This is because of permission issue.run this command :  sudo chmod –R 777 YourfolderName
+     
+6. Build Your Spring Boot Application
+   a) Check out the Spring Boot Docker guide with Git:
+      git clone http://github.com/spring-guides/gs-spring-boot-docker.git
+   b)  Change into the gs-spring-boot-docker/initial directory.
+   c)  Edit the Application.java file: src/main/java/hello/Application.java.
+   d)  Update the code with the following:   
+                        
+                              package hello;
+
+                              import org.springframework.boot.SpringApplication;
+                              import org.springframework.boot.autoconfigure.SpringBootApplication;
+                              import org.springframework.web.bind.annotation.RequestMapping;
+                              import org.springframework.web.bind.annotation.RestController;
+
+                                  @SpringBootApplication
+                                  @RestController
+                                  public class Application {
+
+                                      @RequestMapping
+                                      public String home(){
+                                          return "<h1>Spring Boot Hello World!</h1>";
+                                      }
+
+                                      public static void main(String[] args) {
+                                          SpringApplication.run(Application.class, args);
+                                      }
+                              }
+                    
+   e) Save the file.
+   f) Use Maven to build the application.
+      mvn package
+   g) Run the application.
+   h) Test your application from the command line or a browser.
+
+      From a new terminal, connect to your VM with your SSH keys and test with curl:
+          curl -X GET http://localhost:8080
+          
+          // add image here
+     
+7. Build and Push your Spring Boot Application
+   a) Install Docker
+   b) Build your Docker Image
+   c) Push your Docker image to OCIR
+   d) View the OCIR Repository you Created
+   
 
 
 
