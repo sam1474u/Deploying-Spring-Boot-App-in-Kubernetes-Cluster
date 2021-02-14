@@ -153,7 +153,7 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
                
 7. Build and Push your Spring Boot Application
 
-   1. Install Docker
+    1. Install Docker
    
       Install the Docker packages for Oracle Linux.
       
@@ -167,7 +167,7 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
       
           sudo docker info   
        
-   2. Build your Docker Image
+    2. Build your Docker Image
    
       First, make sure you are in the gs-spring-boot-docker/initial directory.
       Create a file named Dockerfile.
@@ -210,11 +210,10 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
            
        Check your Docker images to see if the tag has been created.
        
-           sudo docker images
-            
+           sudo docker images            
 
    
-   d) View the OCIR Repository you Created
+   4. View the OCIR Repository you Created
    
    ![image](https://user-images.githubusercontent.com/42166489/107628296-720ffd00-6c86-11eb-8576-3c524ed1ba06.png)
    
@@ -224,22 +223,131 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
 
 8. Create your Kubernetes Cluster
 
+    Set up the Kubernetes cluster. You will use a wizard to set up your first cluster.
+
+      From the OCI main menu select Developer Services then Container Clusters.
+      Click Create Cluster.
+      Select Quick Create.
+      Click Launch Workflow and select VM.Standard.E2.1 shape
+
+
   ![image](https://user-images.githubusercontent.com/42166489/107628661-fbbfca80-6c86-11eb-9f8e-f31f4fc19fdb.png)
   
 9. Manage your Kubernetes Cluster with Cloud Shell
+
+   From the OCI main menu select Developer Services then Container Clusters.
+   Click Access Cluster.
+   Select Cloud Shell Access. 
+   
+   Open your Cloud Shell environment.
+
+   Make your .kube directory if it doesn't exist.
+   
+        mkdir -p $HOME/.kube
+
+   Create kubeconfig file for your setup. Use the information from Access Your Cluster dialog.
+   
+        oci ce cluster create-kubeconfig <copy-data-from-dialog>
+ 
+  Test your cluster configuration with the following commands. List clusters:
+  
+      kubectl get service
+
 
   ![image](https://user-images.githubusercontent.com/42166489/107629176-b8b22700-6c87-11eb-819c-dba50e9c6a1a.png)
   
   
 10. Deploy your Docker Image to your Cluster with Cloud Shell
 
-  a) Create a Secret to Securely Connect to OCIR
+    1. Create a Secret to Securely Connect to OCIR
+    
+       First, create a registry secret for your application. This will be used to authenticate your image when it is deployed to your cluster.
+       
+       
+                kubectl create secret docker-registry ocirsecret --docker-server=<region-key>.ocir.io
+                --docker-username='<tenancy-name>/<user-name>' --docker-password='<auth-token>'  --docker-email='<email-address>'                                
+                
+       Verify the secret was created. Issue the following command.
+       
+                 kubectl get secret ocirsecret --output=yaml
   
-  b) Create a Manifest file and Deploy your Image
+    2. Create a Manifest file and Deploy your Image
+    
+       With your image in OCIR, you can now deploy your image and app.
+
+       From the home directory, create a directory called spring-hello.
+       
+                 mkdir spring-hello
+                 cd spring-hello
+                 
+       Create a file called sb-app.yaml.
+                 
+                 vi sb-app.yaml
+       
+       
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sbapp
+spec:
+  selector:
+    matchLabels:
+      app: sbapp
+  replicas: 3
+  template:
+    metadata:
+    labels:
+      app: sbapp
+    spec:
+      containers:
+      - name: sbapp
+        image: <your-image-url>
+        imagePullPolicy: Always
+        ports:
+        - name: sbapp
+        containerPort: 8080
+        protocol: TCP
+      imagePullSecrets:
+      - name: <your-secret-name>
+---
+apiVersion: v1
+kind: Service
+  metadata:
+  name: sbapp-lb
+    labels:
+      app: sbapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    selector:
+      app: sbapp
+                    
+       
+
+   Deploy your application with the following command.
+   
+         kubectl create -f sb-app.yaml
+    
   
-  c) Test your App
+  Test your App 
   
-  d) Clean up your App
+  Check for your load balancer to deploy.
+  
+        kubectl get service
+  
+  Clean up your App
+  
+  After you are done, cleanup and remove the services you created.
+  Delete your app and load balancer.
+  
+      kubectl delete -f sbapp.yaml
+      
+  To check the service is removed
+  
+      kubectl get service
+  
+  
   
   ![image](https://user-images.githubusercontent.com/42166489/107629219-c9fb3380-6c87-11eb-8303-446f656ed13e.png)
   
@@ -249,8 +357,3 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
   
   Hence,You have successfully installed and deployed a Spring Boot app to a Kubernetes cluster on Oracle Cloud Infrastructure.
   
-  
-  
-  
-  
-
