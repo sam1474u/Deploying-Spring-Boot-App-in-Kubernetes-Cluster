@@ -285,44 +285,44 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
                  vi sb-app.yaml
        
        
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: sbapp
-spec:
-  selector:
-    matchLabels:
-      app: sbapp
-  replicas: 3
-  template:
-    metadata:
-    labels:
-      app: sbapp
-    spec:
-      containers:
-      - name: sbapp
-        image: <your-image-url>
-        imagePullPolicy: Always
-        ports:
-        - name: sbapp
-        containerPort: 8080
-        protocol: TCP
-      imagePullSecrets:
-      - name: <your-secret-name>
----
-apiVersion: v1
-kind: Service
-  metadata:
-  name: sbapp-lb
-    labels:
-      app: sbapp
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 8080
-    selector:
-      app: sbapp
-                    
+                apiVersion: apps/v1
+                kind: Deployment
+                metadata:
+                  name: sbapp
+                spec:
+                  selector:
+                    matchLabels:
+                      app: sbapp
+                  replicas: 3
+                  template:
+                    metadata:
+                    labels:
+                      app: sbapp
+                    spec:
+                      containers:
+                      - name: sbapp
+                        image: <your-image-url>
+                        imagePullPolicy: Always
+                        ports:
+                        - name: sbapp
+                        containerPort: 8080
+                        protocol: TCP
+                      imagePullSecrets:
+                      - name: <your-secret-name>
+                ---
+                apiVersion: v1
+                kind: Service
+                  metadata:
+                  name: sbapp-lb
+                    labels:
+                      app: sbapp
+                spec:
+                  type: LoadBalancer
+                  ports:
+                  - port: 8080
+                    selector:
+                      app: sbapp
+
        
 
    Deploy your application with the following command.
