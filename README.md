@@ -340,7 +340,8 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
    
    Test the service on browser
    
-   
+   ![image](https://user-images.githubusercontent.com/42166489/109115064-84009e00-7764-11eb-8bed-4d9dbc462308.png)
+
   
   Clean up your App
   
@@ -352,14 +353,9 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
   To check the service is removed
   
       kubectl get service
-  
-  
 
   
-  
-  
-  ![image](https://user-images.githubusercontent.com/42166489/107629261-db444000-6c87-11eb-8f46-bc7406b01bee.png)
-  
+  ![image](https://user-images.githubusercontent.com/42166489/107629261-db444000-6c87-11eb-8f46-bc7406b01bee.png)  
   
   
   Hence,You have successfully installed and deployed a Spring Boot app to a Kubernetes cluster on Oracle Cloud Infrastructure.
