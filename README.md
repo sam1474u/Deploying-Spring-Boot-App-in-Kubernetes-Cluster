@@ -335,6 +335,12 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
   Check for your load balancer to deploy.
   
         kubectl get service
+        
+   ![image](https://user-images.githubusercontent.com/42166489/109114916-4e5bb500-7764-11eb-910c-5bc9790ad0b5.png)
+   
+   Test the service on browser
+   
+   
   
   Clean up your App
   
@@ -348,8 +354,9 @@ Reference URL for documentation : https://docs.oracle.com/en-us/iaas/developer-t
       kubectl get service
   
   
+
   
-  ![image](https://user-images.githubusercontent.com/42166489/107629219-c9fb3380-6c87-11eb-8303-446f656ed13e.png)
+  
   
   ![image](https://user-images.githubusercontent.com/42166489/107629261-db444000-6c87-11eb-8f46-bc7406b01bee.png)
   
